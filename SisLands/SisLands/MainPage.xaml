@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:SisLands"
              x:Class="SisLands.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
+	<Label Text="Vamos a intentarlo de nuevo......!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
