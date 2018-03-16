@@ -10,7 +10,7 @@ namespace SisLands
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
         #endregion
 
