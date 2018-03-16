@@ -7,7 +7,7 @@
     <ContentPage.Content>   
         
         <ScrollView>
-            <StackLayout Padding="10">
+            <StackLayout Padding="5">
                 <!--<Label 
                 FontAttributes="Bold"
                 FontSize="Large"   
@@ -20,7 +20,7 @@
                 WidthRequest="200">
 
                 </Image>
-                <Grid>
+                <Grid Margin="10,0">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
@@ -57,24 +57,31 @@
 
                     </Entry>
                 </Grid>
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Margin="10,0">
                     <Label
-                        Text="Rememberme in this Device."
+                        Text="Rememberme on this Device."
                         VerticalOptions="Center">
 
                     </Label>
                     <Switch HorizontalOptions="EndAndExpand">
 
                     </Switch>
-                </StackLayout>
-
+                </StackLayout>   
 
                 <ActivityIndicator></ActivityIndicator>
+                
+                <Label 
+                    HorizontalOptions="Center" 
+                    Text="Forgot your Password?" 
+                    TextColor="Blue" 
+                    VerticalOptions="CenterAndExpand">
+                </Label>
 
                 <StackLayout Margin="20, 0" Orientation="Horizontal" HorizontalOptions="Center">
                     <Button           
                     BackgroundColor="Navy"  
-                    HeightRequest="46"
+                    HeightRequest="46" 
+                        HorizontalOptions="FillAndExpand"
                     TextColor="Wheat"
                     CornerRadius="23"   
                       
@@ -83,7 +90,8 @@
                     </Button>
                     <Button           
                     BackgroundColor="Purple"   
-                    HeightRequest="46"
+                    HeightRequest="46"  
+                        HorizontalOptions="FillAndExpand"
                     TextColor="White"
                     CornerRadius="23"  
                         
