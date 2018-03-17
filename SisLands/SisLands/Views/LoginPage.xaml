@@ -20,7 +20,7 @@
                 WidthRequest="200">
 
                 </Image>
-                <Grid Margin="10,0">
+                <Grid Margin="10,0" VerticalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
@@ -57,19 +57,17 @@
 
                     </Entry>
                 </Grid>
-                <StackLayout Orientation="Horizontal" Margin="10,0">
+                <ActivityIndicator VerticalOptions="CenterAndExpand"></ActivityIndicator>
+                <StackLayout Orientation="Horizontal" Margin="10,0" VerticalOptions="CenterAndExpand">
                     <Label
                         Text="Rememberme on this Device."
                         VerticalOptions="Center">
 
                     </Label>
-                    <Switch HorizontalOptions="EndAndExpand">
+                    <Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
 
                     </Switch>
                 </StackLayout>   
-
-                <ActivityIndicator></ActivityIndicator>
-                
                 <Label 
                     HorizontalOptions="Center" 
                     Text="Forgot your Password?" 
@@ -77,7 +75,7 @@
                     VerticalOptions="CenterAndExpand">
                 </Label>
 
-                <StackLayout Margin="20, 0" Orientation="Horizontal" HorizontalOptions="Center">
+                <StackLayout Margin="20, 0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                     <Button           
                     BackgroundColor="Navy"  
                     HeightRequest="46" 
@@ -100,7 +98,7 @@
                     </Button>
                 </StackLayout>       
 
-                <StackLayout  Orientation="Horizontal" HorizontalOptions="Center"  VerticalOptions="Center">
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="Center"  VerticalOptions="EndAndExpand">
                     <Image Source="facebook_logo" WidthRequest="90"></Image>
                     <Image Source="instagram_logo" WidthRequest="65"></Image>
                     <Image Source="twitter_logo" WidthRequest="78"></Image>
