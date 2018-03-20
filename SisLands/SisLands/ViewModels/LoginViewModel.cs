@@ -1,4 +1,6 @@
 ﻿
+using GalaSoft.MvvmLight.Command;
+
 namespace SisLands.ViewModels
 {
     using System;
@@ -37,11 +39,17 @@ namespace SisLands.ViewModels
         #endregion
 
         #region Commands
-        public ICommand LoginCommand
+        public ICommand LoginCommand => new RelayCommand(Login());
 
+        #endregion
+
+        #region Methods
+
+        private Action Login()
         {
-            get; set;
-        } 
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }
