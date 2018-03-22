@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
-using SisLands.Annotations;
-
-namespace SisLands.ViewModels
+﻿namespace SisLands.ViewModels
 {
-     public class BaseViewModel : INotifyPropertyChanged
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+    using SisLands.Annotations;
+    public class BaseViewModel : INotifyPropertyChanged
     {
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;

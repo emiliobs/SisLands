@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SisLands.ViewModels
-{
+﻿namespace SisLands.ViewModels
+{   
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
     public class MainVIewModel
     {
         #region ViewModels

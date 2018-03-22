@@ -1,12 +1,5 @@
-﻿
-
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using SisLands.Annotations;
-
-namespace SisLands.ViewModels
+﻿namespace SisLands.ViewModels
 {
-    using System;
     using System.Windows.Input;
     using Xamarin.Forms;
     using GalaSoft.MvvmLight.Command;
