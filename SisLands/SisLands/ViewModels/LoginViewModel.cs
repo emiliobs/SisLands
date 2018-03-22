@@ -1,5 +1,7 @@
-﻿namespace SisLands.ViewModels
+﻿  
+namespace SisLands.ViewModels
 {
+    using SisLands.Views;
     using System.Windows.Input;
     using Xamarin.Forms;
     using GalaSoft.MvvmLight.Command;
@@ -87,6 +89,9 @@
             IsRemembered = true;
             IsEnabled = true;
 
+            Email = "eabs@hotmail.com";
+            Password = "Eabs123.";
+
         }
         #endregion
 
@@ -136,9 +141,15 @@
             this.IsRunning =  false;
             this.IsEnabled = true;
 
-            await Application.Current.MainPage.DisplayAlert("OK", "Fuck Yeaaah", "Accept");
+            Email = string.Empty;
+            Password = string.Empty;
 
-            
+            MainVIewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+
+            //await Application.Current.MainPage.DisplayAlert("OK", "Fuck Yeaaah", "Accept");
+
+
         }
 
         #endregion

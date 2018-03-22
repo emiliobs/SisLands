@@ -8,14 +8,31 @@
         #region ViewModels
 
         public LoginViewModel Login { get; set; }
-
+        public LandsViewModel Lands { get; set; }   
         #endregion
 
         #region Contructor
 
         public MainVIewModel()
         {
+            instance = this;
             this.Login = new LoginViewModel();
+        }
+
+        #endregion
+
+        #region Singleton
+
+        private static MainVIewModel instance;
+
+        public static MainVIewModel GetInstance()
+        {
+            if (instance == null)
+            {
+              return   new MainVIewModel();
+            }
+
+            return instance;
         }
 
         #endregion
