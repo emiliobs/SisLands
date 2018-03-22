@@ -1,55 +1,163 @@
 ﻿
-using GalaSoft.MvvmLight.Command;
+
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using SisLands.Annotations;
 
 namespace SisLands.ViewModels
 {
     using System;
     using System.Windows.Input;
-    public class LoginViewModel
+    using Xamarin.Forms;
+    using GalaSoft.MvvmLight.Command;
+
+
+    public class LoginViewModel : INotifyPropertyChanged
     {
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+        #region Atributes
+
+        private string email;
+        private string password;
+        private bool isRunning;
+        private bool isRemembered;
+        private bool isEnabled;
+
+        #endregion
 
         #region Properties
 
         public string Email
         {
-            get; set;
+            get => this.email;
+            set
+            {
+                if (this.email == value) return;
+                this.email = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Password
         {
-            get; set;
+            get => this.password;
+            set
+            {
+                if (this.password == value) return;
+                this.password = value;
+                OnPropertyChanged();
+            }
         }
 
         public bool IsRunning
         {
-            get; set;
+            get => this.isRunning;
+            set
+            {
+                if (this.isRunning == value) return;
+
+                this.isRunning = value;
+                OnPropertyChanged();
+            }
         }
 
         public bool IsRemembered
         {
-            get; set;
+            get => this.isRemembered;
+            set
+            {
+                if (this.isRemembered == value) return;
+
+                this.isRemembered = value;
+                OnPropertyChanged();
+            }
         }
+
+        public bool IsEnabled
+        {
+            get => this.isEnabled;
+            set
+            {
+                if (this.isEnabled == value) return;
+
+                this.isEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Contructor
         public LoginViewModel()
         {
-                     this.IsRemembered = true;
-        } 
+            IsRemembered = true;
+            IsEnabled = true;
+
+        }
         #endregion
 
         #region Commands
-        public ICommand LoginCommand => new RelayCommand(Login());
+        public ICommand LoginCommand => new RelayCommand(Login);
+
+
 
         #endregion
 
         #region Methods
 
-        private Action Login()
+        private async void Login()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(this.Email))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "You must an E-Mail.", "Accept");
+
+                return;
+            }
+
+
+            if (string.IsNullOrEmpty(this.Password))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "You must an Password.", "Accept");
+
+                return;
+            }
+
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
+            if (this.Email != "eabs@hotmail.com" || this.Password != "Eabs123.")
+            {
+
+                this.IsRunning = false;
+                this.IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert("Error", "Email or Password Incorrect.!", "Accept");
+
+               
+                this.Password = string.Empty;
+
+                return;
+            }
+
+            this.IsRunning =  false;
+            this.IsEnabled = true;
+
+            await Application.Current.MainPage.DisplayAlert("OK", "Fuck Yeaaah", "Accept");
+
+            
         }
 
         #endregion
+
+
     }
 }

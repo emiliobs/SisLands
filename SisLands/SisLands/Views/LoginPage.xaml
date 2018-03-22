@@ -4,8 +4,8 @@
              x:Class="SisLands.Views.LoginPage" 
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Login - Lands">
-    <ContentPage.Content>   
-        
+    <ContentPage.Content>
+
         <ScrollView BindingContext="{Binding Login}">
             <StackLayout Padding="5">
                 <!--<Label 
@@ -76,7 +76,7 @@
                         VerticalOptions="CenterAndExpand">
 
                     </Switch>
-                </StackLayout>   
+                </StackLayout>
                 <Label 
                     HorizontalOptions="Center" 
                     Text="Forgot your Password?" 
@@ -88,7 +88,8 @@
                     <Button           
                     BackgroundColor="Navy"  
                     HeightRequest="46" 
-                        HorizontalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"  
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Command="{Binding LoginCommand}"
                     TextColor="Wheat"  
                         CornerRadius="23"   
@@ -100,13 +101,14 @@
                     BackgroundColor="Purple"   
                     HeightRequest="46"  
                         HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                     TextColor="White"
                     CornerRadius="23"  
                         
                     Text="Register.">
 
                     </Button>
-                </StackLayout>       
+                </StackLayout>
 
                 <StackLayout  Orientation="Horizontal" HorizontalOptions="Center"  VerticalOptions="EndAndExpand">
                     <Image Source="facebook_logo" WidthRequest="90"></Image>
@@ -117,6 +119,6 @@
             </StackLayout>
         </ScrollView>
 
-       
+
     </ContentPage.Content>
 </ContentPage>
