@@ -57,6 +57,19 @@ namespace SisLands.ViewModels
 
         private async void LoadLands()
         {
+            var connection = await apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
+
+                //si i hay ningun tipo de red, regreso al main dela app
+                await Application.Current.MainPage.Navigation.PopAsync();
+
+                return;
+
+            }
+
             var response = await apiService.GetList<Lands>("http://restcountries.eu", "/rest", "/v2/all");
 
             if (!response.IsSuccess)
