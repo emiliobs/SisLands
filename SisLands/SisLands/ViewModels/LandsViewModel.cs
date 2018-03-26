@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using SisLands.Models;
 using SisLands.Services;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -21,6 +23,8 @@ namespace SisLands.ViewModels
         #region Atributes
 
         private ObservableCollection<Lands> lands;
+        private bool isRefreshing;
+        
 
         #endregion
 
@@ -39,6 +43,22 @@ namespace SisLands.ViewModels
             }
         }
 
+        public bool IsRefreshing
+        {
+            get => isRefreshing;
+
+            set
+            {
+                if (isRefreshing == value) return;
+                {
+                    isRefreshing = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        
+
         #endregion
 
         #region Contructor
@@ -49,6 +69,17 @@ namespace SisLands.ViewModels
 
             LoadLands();
         }
+
+        #endregion
+
+        #region Command
+
+        public ICommand RefreshCommand
+        {
+            get => new RelayCommand(Refresh);
+        }
+
+        
 
         #endregion
 
@@ -83,6 +114,14 @@ namespace SisLands.ViewModels
             this.Lands = new ObservableCollection<Lands>(list);
         }
 
+        private void Refresh()
+        {
+            IsRefreshing = true;
+
+            LoadLands();
+
+            IsRefreshing = false;
+        }
         #endregion
 
     }

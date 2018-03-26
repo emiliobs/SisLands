@@ -5,10 +5,37 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Lands">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Lands}" Padding="5" BackgroundColor="Coral">
-            <Label Text="Lands Page.!!!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BindingContext="{Binding Lands}" Padding="5">
+            <ListView ItemsSource="{Binding Lands}"
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                      RefreshCommand="{Binding RefreshCommand}">    
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>        
+                                <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                    <Label
+                                        FontAttributes="Bold" 
+                                        FontSize="Medium"
+                                        TextColor="Black"
+                                        Text="{Binding Name}">
+                                    </Label>    
+                                    <Label Text="{Binding Capital}" TextColor="Black"></Label>
+                                </StackLayout>
+                                <Image Grid.Column="1" HorizontalOptions="End" Source="ic_chevron"></Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
