@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
@@ -24,7 +25,8 @@ namespace SisLands.ViewModels
 
         private ObservableCollection<Lands> lands;
         private bool isRefreshing;
-        
+        private string filter;
+        private List<Lands> landsList;
 
         #endregion
 
@@ -57,7 +59,22 @@ namespace SisLands.ViewModels
             }
         }
 
-        
+        public string Filter
+        {
+            get => filter;
+
+            set
+            {
+                if (filter == value) return;
+                {
+                    filter = value;
+                    OnPropertyChanged();
+
+                    Search();
+                }
+            }
+        }
+
 
         #endregion
 
@@ -76,22 +93,43 @@ namespace SisLands.ViewModels
 
         public ICommand RefreshCommand
         {
-            get => new RelayCommand(Refresh);
+            get => new RelayCommand(LoadLands);
         }
 
-        
+        public ICommand SearchCommand
+        {
+            get => new RelayCommand(Search);
+        }
 
         #endregion
 
         #region Methods
 
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(Filter))
+            {
+                   Lands = new ObservableCollection<Lands>(landsList);
+            }
+            else
+            {
+                //aqui utilizo el linquiu
+                Lands = new ObservableCollection<Lands>(landsList.Where(
+                    l=>l.Name.ToLower().Contains(Filter.ToLower()) || 
+                       l.Capital.ToLower().Contains(Filter.ToLower())));
+            }
+        }
 
         private async void LoadLands()
         {
+            IsRefreshing = true;
+
             var connection = await apiService.CheckConnection();
 
             if (!connection.IsSuccess)
             {
+                IsRefreshing = false;
+
                 await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
 
                 //si i hay ningun tipo de red, regreso al main dela app
@@ -110,18 +148,12 @@ namespace SisLands.ViewModels
                 return;
             }
 
-            var list = (List<Lands>) response.Result;
-            this.Lands = new ObservableCollection<Lands>(list);
-        }
-
-        private void Refresh()
-        {
-            IsRefreshing = true;
-
-            LoadLands();
+            landsList = (List<Lands>) response.Result;
+            this.Lands = new ObservableCollection<Lands>(landsList);
 
             IsRefreshing = false;
         }
+
         #endregion
 
     }
