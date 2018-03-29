@@ -98,7 +98,7 @@ namespace SisLands.ViewModels
 
         public ICommand SearchCommand
         {
-            get => new RelayCommand(Search);
+            get => new RelayCommand(Search);   
         }
 
         #endregion
