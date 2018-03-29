@@ -23,7 +23,7 @@ namespace SisLands.ViewModels
 
         #region Atributes
 
-        private ObservableCollection<Lands> lands;
+        private ObservableCollection<LandItemViewModel> lands;
         private bool isRefreshing;
         private string filter;
         private List<Lands> landsList;
@@ -32,7 +32,7 @@ namespace SisLands.ViewModels
 
         #region Properties
 
-        public ObservableCollection<Lands> Lands
+        public ObservableCollection<LandItemViewModel> Lands
         {
             get => lands;
             set
@@ -109,12 +109,12 @@ namespace SisLands.ViewModels
         {
             if (string.IsNullOrEmpty(Filter))
             {
-                   Lands = new ObservableCollection<Lands>(landsList);
+                   Lands = new ObservableCollection<LandItemViewModel>(ToLandItemViewModel());
             }
             else
             {
                 //aqui utilizo el linquiu
-                Lands = new ObservableCollection<Lands>(landsList.Where(
+                Lands = new ObservableCollection<LandItemViewModel>(ToLandItemViewModel().Where(
                     l=>l.Name.ToLower().Contains(Filter.ToLower()) || 
                        l.Capital.ToLower().Contains(Filter.ToLower())));
             }
@@ -149,9 +149,41 @@ namespace SisLands.ViewModels
             }
 
             landsList = (List<Lands>) response.Result;
-            this.Lands = new ObservableCollection<Lands>(landsList);
+
+            this.Lands = new ObservableCollection<LandItemViewModel>(this.ToLandItemViewModel());
 
             IsRefreshing = false;
+        }
+
+        private IEnumerable<LandItemViewModel> ToLandItemViewModel()
+        {
+            return landsList.Select(l => new LandItemViewModel()
+            {
+                 Name = l.Name,
+                Capital = l.Capital,
+                Alpha2Code = l.Alpha2Code,
+                Alpha3Code = l.Alpha3Code,
+                AltSpellings = l.AltSpellings,
+                Area = l.Area,
+                Borders = l.Borders,
+                CallingCodes = l.CallingCodes,
+                Cioc = l.Cioc,
+                Currencies = l.Currencies,
+                Demonym = l.Demonym,
+                Flag = l.Flag,
+                Gini = l.Gini,
+                Languages = l.Languages,
+                Latlng = l.Latlng,
+                NativeName = l.NativeName,
+                NumericCode = l.NumericCode,
+                Population = l.Population,
+                Region = l.Region,
+                RegionalBlocs = l.RegionalBlocs,
+                Subregion = l.Subregion,
+                Timezones = l.Timezones,
+                TopLevelDomain = l.TopLevelDomain,
+                Translations = l.Translations,
+            });
         }
 
         #endregion

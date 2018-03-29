@@ -76,5 +76,7 @@ namespace SisLands.Models
 
         [JsonProperty("cioc")]
         public string Cioc { get; set; }
+
+       
     }
 }
