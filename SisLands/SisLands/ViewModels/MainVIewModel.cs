@@ -3,13 +3,23 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using SisLands.Models;
     public class MainVIewModel
     {
+        #region Properties
+
+        public List<Lands> LandsList { get; set; }
+
+        #endregion
+
         #region ViewModels
 
         public LoginViewModel Login { get; set; }
         public LandsViewModel Lands { get; set; }
         public LandViewModel Land { get; set; }
+
+       
+
         #endregion
 
         #region Contructor

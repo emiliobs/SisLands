@@ -26,7 +26,7 @@ namespace SisLands.ViewModels
         private ObservableCollection<LandItemViewModel> lands;
         private bool isRefreshing;
         private string filter;
-        private List<Lands> landsList;
+        //private List<Lands> landsList;
 
         #endregion
 
@@ -148,7 +148,7 @@ namespace SisLands.ViewModels
                 return;
             }
 
-            landsList = (List<Lands>) response.Result;
+            MainVIewModel.GetInstance().LandsList = (List<Lands>) response.Result;
 
             this.Lands = new ObservableCollection<LandItemViewModel>(this.ToLandItemViewModel());
 
@@ -157,7 +157,7 @@ namespace SisLands.ViewModels
 
         private IEnumerable<LandItemViewModel> ToLandItemViewModel()
         {
-            return landsList.Select(l => new LandItemViewModel()
+            return MainVIewModel.GetInstance().LandsList.Select(l => new LandItemViewModel()
             {
                  Name = l.Name,
                 Capital = l.Capital,
