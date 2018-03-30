@@ -24,7 +24,7 @@
         {
             //con la palabra reservada this traigo todos los datos que viene con la seleccion del mismo.
             MainVIewModel.GetInstance().Land = new LandViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new LandPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new LandTabbedPAge());
         } 
         #endregion
     }
