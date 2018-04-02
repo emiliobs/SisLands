@@ -16,11 +16,24 @@ namespace SisLands.ViewModels
 
         private ObservableCollection<Border> _borders;
         private ObservableCollection<Currency> _currencies;
+        private ObservableCollection<Language> _languages;
 
         #endregion
 
         #region Properties
 
+        public ObservableCollection<Language> Languages
+        {
+            get => _languages;
+            set
+            {
+                if (_languages == value) return;
+                {
+                    _languages = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public Lands Land { get; set; }
 
         public ObservableCollection<Currency> Currencies
@@ -58,6 +71,7 @@ namespace SisLands.ViewModels
 
             LoadBorders();
             Currencies = new ObservableCollection<Currency>(Land.Currencies);
+            Languages = new ObservableCollection<Language>(land.Languages);
         }
 
         #endregion
