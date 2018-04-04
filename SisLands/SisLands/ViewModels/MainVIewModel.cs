@@ -8,6 +8,8 @@
     {
         #region Properties
 
+        public TokenResponse Token { get; set; }
+
         public List<Lands> LandsList { get; set; }
 
         #endregion

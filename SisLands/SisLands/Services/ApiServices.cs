@@ -107,13 +107,7 @@ namespace SisLands.Services
                 //    Encoding.UTF8, "application/x-www-form-urlencoded"));
 
                 var resultJSON = await response.Content.ReadAsStringAsync();
-
-
-
                 var result = JsonConvert.DeserializeObject<TokenResponse>(resultJSON);
-
-
-
                 return result;
 
             }
@@ -484,7 +478,7 @@ namespace SisLands.Services
 
             }
 
-        }    
+        }
 
         //Get sin Token -- sin seguridad     
 

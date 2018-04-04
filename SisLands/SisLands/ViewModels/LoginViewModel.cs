@@ -1,6 +1,11 @@
 ﻿  
+
+
+using System;
+
 namespace SisLands.ViewModels
 {
+    using SisLands.Services;
     using SisLands.Views;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -9,7 +14,12 @@ namespace SisLands.ViewModels
 
     public class LoginViewModel : BaseViewModel 
     {
-        
+
+        #region Services
+
+        private ApiService apiServices;
+
+        #endregion
 
         #region Atributes
 
@@ -86,11 +96,13 @@ namespace SisLands.ViewModels
         #region Contructor
         public LoginViewModel()
         {
+            apiServices = new ApiService();
+
             IsRemembered = true;
             IsEnabled = true;
 
-            Email = "eabs@hotmail.com";
-            Password = "Eabs123.";
+            //Email = "eabs@hotmail.com";
+            //Password = "Eabs123.";
 
         }
         #endregion
@@ -124,19 +136,76 @@ namespace SisLands.ViewModels
             this.IsRunning = true;
             this.IsEnabled = false;
 
-            if (this.Email != "eabs@hotmail.com" || this.Password != "Eabs123.")
+            //if (this.Email != "eabs@hotmail.com" || this.Password != "Eabs123.")
+            //{
+
+            //    this.IsRunning = false;
+            //    this.IsEnabled = true;
+
+            //    await Application.Current.MainPage.DisplayAlert("Error", "Email or Password Incorrect.!", "Accept");
+
+
+            //    this.Password = string.Empty;
+
+            //    return;
+            //}
+
+            //aqui valido que haya conexion:
+            var connection = await apiServices.CheckConnection();
+
+            //Si no hay conexion:
+            if (!connection.IsSuccess)
             {
+                IsRunning = false;
+                IsEnabled = true;
 
-                this.IsRunning = false;
-                this.IsEnabled = true;
-
-                await Application.Current.MainPage.DisplayAlert("Error", "Email or Password Incorrect.!", "Accept");
-
-               
-                this.Password = string.Empty;
+                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Eccept");
 
                 return;
             }
+
+            //Si hay Conexión:
+            //Aqui utlizo el token:
+            //var token = await apiServices.GetToken("http://localhost:57505/", Email, Password);
+            var token = await apiServices.GetToken("http://landsapi1.azurewebsites.net", Email, Password);
+
+
+            //aqui pregunto si el objeto token es nulo:
+            if (token == null)
+            {
+                IsRunning = false;
+                IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert("Error", "Something was wrong, Please try Again.!!",
+                    "Accept");
+                return;
+
+            }
+
+            //Aqui pregunto si no viene token:
+            if (string.IsNullOrEmpty(token.AccessToken))
+            {
+                IsRunning = false;
+                IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert("Error", token.ErrorDescription, "Accept");
+
+                Password = String.Empty;
+
+                return;
+            }
+
+            //Si llego aqui ya tengo token:(seguridad)
+            //genero un apuntador:
+            var mainViewModel = MainVIewModel.GetInstance();
+
+            mainViewModel.Token = token;
+            mainViewModel.Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+
+            //await Application.Current.MainPage.DisplayAlert("OK", "Fuck Yeaaah", "Accept");
+            this.IsRunning = true;
+            this.IsEnabled = false;
 
             this.IsRunning =  false;
             this.IsEnabled = true;
@@ -144,10 +213,7 @@ namespace SisLands.ViewModels
             Email = string.Empty;
             Password = string.Empty;
 
-            MainVIewModel.GetInstance().Lands = new LandsViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
-
-            //await Application.Current.MainPage.DisplayAlert("OK", "Fuck Yeaaah", "Accept");
+           
 
 
         }
