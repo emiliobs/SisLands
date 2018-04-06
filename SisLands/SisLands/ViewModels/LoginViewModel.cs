@@ -101,8 +101,8 @@ namespace SisLands.ViewModels
             IsRemembered = true;
             IsEnabled = true;
 
-            //Email = "eabs@hotmail.com";
-            //Password = "Eabs123.";
+            Email = "barrera_emilio@hotmail.com";
+            Password = "Eabs123.";
 
         }
         #endregion

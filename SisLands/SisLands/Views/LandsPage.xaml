@@ -1,10 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="SisLands.Views.LandsPage"  
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Lands"
              BackgroundColor="Silver">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ffimageloadingsvg:SvgImageSourceConverter 
+                x:Key="SvgImageSourceConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Lands}">   
                   
@@ -37,10 +48,19 @@
 
                                 <Grid>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition> 
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <StackLayout Grid.Column="0" VerticalOptions="Center">
+
+                                    <ffimageloading:CachedImage 
+                                        Grid.Column="0"
+                                        HeightRequest="30"
+                                        Source="{Binding Flag, Converter={StaticResource SvgImageSourceConverter}}"
+                                        WidthRequest="60">
+                                    </ffimageloading:CachedImage>
+
+                                    <StackLayout Grid.Column="1" VerticalOptions="Center">
                                         <Label
                                             FontAttributes="Bold" 
                                             FontSize="Medium"
@@ -49,7 +69,7 @@
                                         </Label>
                                         <Label Text="{Binding Capital}" TextColor="Black"></Label>
                                     </StackLayout>
-                                    <Image Grid.Column="1" HorizontalOptions="End" Source="ic_chevron"></Image>
+                                    <Image Grid.Column="2" HorizontalOptions="End" Source="ic_chevron"></Image>
                                 </Grid>
                             </Frame>
                         </ViewCell>

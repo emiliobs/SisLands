@@ -148,6 +148,8 @@ namespace SisLands.ViewModels
                 return;
             }
 
+           
+
             MainVIewModel.GetInstance().LandsList = (List<Lands>) response.Result;
 
             this.Lands = new ObservableCollection<LandItemViewModel>(this.ToLandItemViewModel());
