@@ -2,6 +2,8 @@
 
 
 using System;
+using SisLands.Helpers;
+using SisLands.Models;
 
 namespace SisLands.ViewModels
 {
@@ -120,7 +122,7 @@ namespace SisLands.ViewModels
         {
             if (string.IsNullOrEmpty(this.Email))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "You must an E-Mail.", "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.EmailValidator, Languages.Accept);
 
                 return;
             }
@@ -128,7 +130,10 @@ namespace SisLands.ViewModels
 
             if (string.IsNullOrEmpty(this.Password))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "You must an Password.", "Accept");
+                //await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.EmailValidator, Languages.Accept);
+
+
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.PasswordVaidator, Languages.Accept);
 
                 return;
             }
@@ -159,7 +164,7 @@ namespace SisLands.ViewModels
                 IsRunning = false;
                 IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Eccept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, connection.Message, Languages.Accept);
 
                 return;
             }
@@ -176,8 +181,8 @@ namespace SisLands.ViewModels
                 IsRunning = false;
                 IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error", "Something was wrong, Please try Again.!!",
-                    "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.SomethingWasWrong,
+                    Languages.Accept);
                 return;
 
             }
@@ -188,7 +193,8 @@ namespace SisLands.ViewModels
                 IsRunning = false;
                 IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error", token.ErrorDescription, "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, token.ErrorDescription,
+                    Languages.Accept);
 
                 Password = String.Empty;
 
