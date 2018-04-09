@@ -46,5 +46,22 @@ namespace SisLands.Helpers
 
         }
 
+        public static string Rememberme
+        {
+            get => Resource.Rememberme;
+
+        }
+
+        public static string EmailPlaceHolder
+        {
+            get => Resource.EmailPlaceHolder;
+
+        }
+
+        public static string PasswordPlaceHolder
+        {
+            get => Resource.PasswordPlaceHolder;
+
+        }
     }
 }

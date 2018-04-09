@@ -70,6 +70,15 @@ namespace SisLands.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter your E-Mail..
+        /// </summary>
+        public static string EmailPlaceHolder {
+            get {
+                return ResourceManager.GetString("EmailPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must enter an E-Mail..
         /// </summary>
         public static string EmailValidator {
@@ -88,11 +97,29 @@ namespace SisLands.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter your Password.
+        /// </summary>
+        public static string PasswordPlaceHolder {
+            get {
+                return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must enter an Password.
         /// </summary>
         public static string PasswordValidator {
             get {
                 return ResourceManager.GetString("PasswordValidator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember me on this Device..
+        /// </summary>
+        public static string Rememberme {
+            get {
+                return ResourceManager.GetString("Rememberme", resourceCulture);
             }
         }
         

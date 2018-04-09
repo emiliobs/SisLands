@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SisLands.Views.LoginPage" 
+             x:Class="SisLands.Views.LoginPage"  
+             xmlns:i18n="clr-namespace:SisLands.Helpers"  
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Login - Lands">
     <ContentPage.Content>
@@ -40,7 +41,7 @@
                     Grid.Column="1"
                     Keyboard="Email"  
                         Text="{Binding Email, Mode=TwoWay}"
-                    Placeholder="Enter your E-Mail.">
+                    Placeholder="{i18n:Translate EmailPlaceHolder}">
 
                     </Entry>
 
@@ -55,7 +56,7 @@
                     Grid.Column="1"
                     IsPassword="True" 
                         Text="{Binding Password, Mode=TwoWay}"
-                    Placeholder="Enter your Password.">
+                    Placeholder="{i18n:Translate PasswordPlaceHolder}">
 
                     </Entry>
                 </Grid>
@@ -66,7 +67,7 @@
                 </ActivityIndicator>
                 <StackLayout Orientation="Horizontal" Margin="10,0" VerticalOptions="CenterAndExpand">
                     <Label
-                        Text="Rememberme on this Device."
+                        Text="{i18n:Translate Rememberme}"
                         VerticalOptions="Center">
 
                     </Label>
