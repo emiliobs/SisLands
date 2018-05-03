@@ -5,10 +5,12 @@
              xmlns:i18n="clr-namespace:SisLands.Helpers"
              x:Class="SisLands.Views.MenuPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"  
-             Title="{i18n:Translate Menu}">
+             Title="{i18n:Translate Menu}"
+             BackgroundColor="Navy">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Menú......."
+                   TextColor="White"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

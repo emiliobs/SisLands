@@ -28,8 +28,7 @@
                    TextColor="Black">
                </Label>
 
-                <ffimageloading:CachedImage  HeightRequest="200" WidthRequest="200"
-                    Source="{Binding Land.Flag, Converter={StaticResource SvgImageSourceConverter}}">
+                <ffimageloading:CachedImage Source="{Binding Land.Flag, Converter={StaticResource SvgImageSourceConverter}}">
                 </ffimageloading:CachedImage>
 
                 <Grid>
