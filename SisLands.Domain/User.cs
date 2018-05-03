@@ -39,7 +39,7 @@ namespace SisLands.Domain
         public string ImagePath { get; set; }
 
         [Display(Name = "Image")]
-        public string ImageFullPath => string.IsNullOrEmpty(this.ImagePath) ? "NoImage" : $"http://landsapi1.azurewebsites.net/{ImagePath.Substring(1)}";
+        public string ImageFullPath => string.IsNullOrEmpty(this.ImagePath) ? "NoImage" : $"http://sislandsapi.azurewebsites.net/{ImagePath.Substring(1)}";
 
         [Display(Name = "User")]
         public string FullName => $"{this.FirstName} {this.LastName}";

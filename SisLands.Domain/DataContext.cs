@@ -1,5 +1,4 @@
-﻿
-
+﻿using System.Threading;
 
 namespace SisLands.Domain
 {
@@ -15,7 +14,7 @@ namespace SisLands.Domain
     {
         public DataContext() : base("DefaultConnection")
         {
-            
+           
         }
     }
 }

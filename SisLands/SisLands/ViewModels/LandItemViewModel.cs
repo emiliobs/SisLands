@@ -19,6 +19,7 @@
             get => new RelayCommand(SelectLand);
         }
         #endregion
+
         #region Methods
         private async void SelectLand()
         {
