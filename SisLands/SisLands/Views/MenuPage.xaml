@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:SisLands.Helpers;assembly=SisLands"  
+             xmlns:i18n="clr-namespace:SisLands.Helpers"
+             x:Class="SisLands.Views.MenuPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"  
+             Title="{i18n:Translate Menu}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Menú......."
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

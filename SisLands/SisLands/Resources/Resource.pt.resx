@@ -129,6 +129,9 @@
   <data name="Error" xml:space="preserve">
     <value>Erro</value>
   </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Coloque sua senha.</value>
   </data>

@@ -63,5 +63,11 @@ namespace SisLands.Helpers
             get => Resource.PasswordPlaceHolder;
 
         }
+
+        public static string Menu
+        {
+            get => Resource.Menu;
+
+        }
     }
 }

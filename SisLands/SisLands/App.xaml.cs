@@ -5,6 +5,14 @@ namespace SisLands
     using Xamarin.Forms;
     public partial class App : Application
 	{
+        #region Properties
+
+
+	    public static NavigationPage Navigator { get; set; }
+
+
+        #endregion
+
         #region Contructor
         public App()
         {
@@ -12,7 +20,10 @@ namespace SisLands
 
             MainPage = new NavigationPage(new LoginPage());
         }
-        #endregion
+
+	   
+
+	    #endregion
 
         #region Methods
         protected override void OnStart()
