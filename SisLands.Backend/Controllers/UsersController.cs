@@ -1,4 +1,6 @@
-﻿namespace SisLands.Backend.Controllers
+﻿using SisLands.Backend.Helpers;
+
+namespace SisLands.Backend.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -49,16 +51,34 @@
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "UserId,FirstName,LastName,Email,Telephone,ImagePath")] User user)
+        public async Task<ActionResult> Create( UserView view)
         {
             if (ModelState.IsValid)
             {
+                //aqui convierto un user a userview:
+                var user = this.ToUser(view);
+
+
                 db.Users.Add(user);
+                UsersHelper.CreateUserASP(view.Email,"User",view.Password);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(view);
+        }
+
+        private User ToUser(UserView view)
+        {
+            return new User()
+            {
+                Email = view.Email,
+                FirstName = view.FirstName,
+                ImagePath = view.ImagePath,
+                LastName = view.LastName,
+                Telephone = view.Telephone,
+                UserId = view.UserId,
+            };
         }
 
         // GET: Users/Edit/5

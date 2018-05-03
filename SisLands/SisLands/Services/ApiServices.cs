@@ -4,7 +4,6 @@ namespace SisLands.Services
    
     using Models;
     using Newtonsoft.Json;
-    using SisLands.Domain;
     using System;                  
     using System.Collections.Generic;
 
@@ -24,7 +23,7 @@ namespace SisLands.Services
 
 
 
-        public async Task<Response> CheckConnection()
+        public async Task<Models.Response> CheckConnection()
 
         {
 
