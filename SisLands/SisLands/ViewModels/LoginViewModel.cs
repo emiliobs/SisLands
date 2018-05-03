@@ -172,7 +172,8 @@ namespace SisLands.ViewModels
             //Si hay Conexión:
             //Aqui utlizo el token:
             //var token = await apiServices.GetToken("http://localhost:57505/", Email, Password);
-            var token = await apiServices.GetToken("http://landsapi1.azurewebsites.net", Email, Password);
+            //var token = await apiServices.GetToken("http://landsapi1.azurewebsites.net", Email, Password);
+            var token = await apiServices.GetToken("http://sislandsapi.azurewebsites.net", Email, Password);
 
 
             //aqui pregunto si el objeto token es nulo:
@@ -210,8 +211,8 @@ namespace SisLands.ViewModels
             await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
 
             //await Application.Current.MainPage.DisplayAlert("OK", "Fuck Yeaaah", "Accept");
-            this.IsRunning = true;
-            this.IsEnabled = false;
+            //this.IsRunning = true;
+            //this.IsEnabled = false;
 
             this.IsRunning =  false;
             this.IsEnabled = true;

@@ -80,22 +80,17 @@
 
         public async Task<TokenResponse> GetToken(string urlBase, string username, string password)
 
-        {
-
-            try
-
+        {      
+            try         
             {
 
                 var client = new HttpClient();
 
                 client.BaseAddress = new Uri(urlBase);
 
-                var response = await client.PostAsync("Token",
-
-                    new StringContent($"grant_type=password&username={username}&password={password}",
-
-                        Encoding.UTF8, "application/x-www-form-urlencoded"));
-
+                var response = await client.PostAsync("Token",  
+                    new StringContent($"grant_type=password&username={username}&password={password}",    
+                        Encoding.UTF8, "application/x-www-form-urlencoded"));      
                 //var response = await client.PostAsync("Token",
 
                 //    new StringContent(string.Format("grant_type=password&username={0}&password={1}", username, password),
@@ -108,12 +103,9 @@
 
             }
 
-            catch
-
-            {
-
-                return null;
-
+            catch     
+            {         
+                return null;         
             }
 
         }

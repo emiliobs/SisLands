@@ -6,10 +6,8 @@
     using SisLands.Models;
     public class MainVIewModel
     {
-        #region Properties
-
+        #region Properties   
         public TokenResponse Token { get; set; }
-
         public List<Lands> LandsList { get; set; }
 
         #endregion
