@@ -11,7 +11,7 @@
     <MasterDetailPage.Detail>  
         <NavigationPage x:Name="Navigator">
             <x:Arguments>
-                <pages:LandTabbedPAge></pages:LandTabbedPAge>
+                <pages:LandsPage></pages:LandsPage>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

@@ -18,8 +18,8 @@ namespace SisLands
         {
             InitializeComponent();
 
-            MainPage = new MasterPage();
-            //MainPage = new NavigationPage(new LoginPage());
+           // MainPage = new MasterPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
 	   

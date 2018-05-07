@@ -104,7 +104,7 @@ namespace SisLands.ViewModels
             IsEnabled = true;
 
             Email = "barrera_emilio@hotmail.com";
-            Password = "Eabs123.";
+            Password = "Eabs-----55555";
 
         }
         #endregion
@@ -208,7 +208,8 @@ namespace SisLands.ViewModels
 
             mainViewModel.Token = token;
             mainViewModel.Lands = new LandsViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+            //await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+            Application.Current.MainPage = new MasterPage();
 
             //await Application.Current.MainPage.DisplayAlert("OK", "Fuck Yeaaah", "Accept");
             //this.IsRunning = true;
