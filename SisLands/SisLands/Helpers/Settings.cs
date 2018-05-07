@@ -27,7 +27,7 @@
             }
             set
             {
-                AppSettings.AddOrUpdateValue(Token, value);
+                AppSettings.AddOrUpdateValue(tokenId, value);
             }
         }
 

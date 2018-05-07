@@ -62,8 +62,7 @@
                 </Grid>
                 <ActivityIndicator             
                     IsRunning="{Binding IsRunning, Mode=TwoWay}"
-                    VerticalOptions="CenterAndExpand">
-
+                    VerticalOptions="CenterAndExpand">  
                 </ActivityIndicator>
                 <StackLayout Orientation="Horizontal" Margin="10,0" VerticalOptions="CenterAndExpand">
                     <Label

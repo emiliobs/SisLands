@@ -103,8 +103,8 @@ namespace SisLands.ViewModels
             IsRemembered = true;
             IsEnabled = true;
 
-            Email = "barrera_emilio@hotmail.com";
-            Password = "Eabs-----55555";
+            //Email = "barrera_emilio@hotmail.com";
+            //Password = "Eabs-----55555";
 
         }
         #endregion
@@ -209,8 +209,13 @@ namespace SisLands.ViewModels
             mainViewModel.Token = token.AccessToken;
             mainViewModel.TokenType = token.TokenType;
 
-            Settings.Token = token.AccessToken;
-            Settings.TokenTypeId = token.TokenType;
+            if (IsRemembered)
+            {
+                Settings.Token = token.AccessToken;
+                Settings.TokenTypeId = token.TokenType;
+            }
+
+           
 
             mainViewModel.Lands = new LandsViewModel();
             //await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
@@ -223,8 +228,8 @@ namespace SisLands.ViewModels
             this.IsRunning =  false;
             this.IsEnabled = true;
 
-            Email = string.Empty;
-            Password = string.Empty;
+            //Email = string.Empty;
+            //Password = string.Empty;
 
            
 

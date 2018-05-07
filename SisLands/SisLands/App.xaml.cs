@@ -33,6 +33,8 @@ namespace SisLands
                 mainViewModel.Token = Settings.Token;
                 mainViewModel.TokenType = Settings.TokenTypeId;
 
+                mainViewModel.Lands = new LandsViewModel();
+
                 MainPage = new MasterPage();
 
             }

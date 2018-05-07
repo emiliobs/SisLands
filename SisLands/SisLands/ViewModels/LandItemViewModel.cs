@@ -1,4 +1,6 @@
-﻿ namespace SisLands.ViewModels
+﻿ using Xamarin.Forms;
+
+namespace SisLands.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -26,7 +28,8 @@
             //con la palabra reservada this traigo todos los datos que viene con la seleccion del mismo.
             MainVIewModel.GetInstance().Land = new LandViewModel(this);
             await Application.Current.MainPage.Navigation.PushAsync(new LandTabbedPAge());
-            //await  Application.Current.MainPage.Navigation.
+            //Application.Current.MainPage = new NavigationPage(new LandTabbedPAge());
+            
         } 
         #endregion
     }

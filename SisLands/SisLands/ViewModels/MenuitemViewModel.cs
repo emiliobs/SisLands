@@ -35,8 +35,9 @@ namespace SisLands.ViewModels
                 Settings.TokenTypeId = string.Empty;
 
                 var mainViewModel = MainVIewModel.GetInstance();
-                mainViewModel.TokenType = string.Empty;
+               
                 mainViewModel.Token = string.Empty;
+                mainViewModel.TokenType = string.Empty;
 
                 Application.Current.MainPage = new LoginPage();
             }
