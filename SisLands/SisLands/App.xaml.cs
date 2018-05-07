@@ -1,4 +1,7 @@
 ﻿
+using SisLands.Helpers;
+using SisLands.ViewModels;
+
 namespace SisLands
 {
     using SisLands.Views;
@@ -19,7 +22,22 @@ namespace SisLands
             InitializeComponent();
 
            // MainPage = new MasterPage();
-            MainPage = new NavigationPage(new LoginPage());
+            //aqui pregunto si ahya token o no:
+            if (string.IsNullOrEmpty(Settings.Token))
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                var mainViewModel = MainVIewModel.GetInstance();
+                mainViewModel.Token = Settings.Token;
+                mainViewModel.TokenType = Settings.TokenTypeId;
+
+                MainPage = new MasterPage();
+
+            }
+
+           
         }
 
 	   

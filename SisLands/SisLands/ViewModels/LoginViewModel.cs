@@ -206,7 +206,12 @@ namespace SisLands.ViewModels
             //genero un apuntador:
             var mainViewModel = MainVIewModel.GetInstance();
 
-            mainViewModel.Token = token;
+            mainViewModel.Token = token.AccessToken;
+            mainViewModel.TokenType = token.TokenType;
+
+            Settings.Token = token.AccessToken;
+            Settings.TokenTypeId = token.TokenType;
+
             mainViewModel.Lands = new LandsViewModel();
             //await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
             Application.Current.MainPage = new MasterPage();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using SisLands.Helpers;
 using SisLands.Views;
 using Xamarin.Forms;
 
@@ -30,6 +31,13 @@ namespace SisLands.ViewModels
         {
             if (PageName == "LoginPage")
             {
+                Settings.Token = string.Empty;
+                Settings.TokenTypeId = string.Empty;
+
+                var mainViewModel = MainVIewModel.GetInstance();
+                mainViewModel.TokenType = string.Empty;
+                mainViewModel.Token = string.Empty;
+
                 Application.Current.MainPage = new LoginPage();
             }
         }

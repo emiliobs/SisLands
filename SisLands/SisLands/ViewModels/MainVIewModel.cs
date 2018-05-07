@@ -10,7 +10,10 @@ namespace SisLands.ViewModels
     public class MainVIewModel
     {
         #region Properties   
-        public TokenResponse Token { get; set; }
+        //public TokenResponse Token { get; set; }
+
+        public string Token { get; set; }
+        public string TokenType { get; set; }
         public List<Lands> LandsList { get; set; }
 
         public ObservableCollection<MenuitemViewModel> Menus { get; set; }
