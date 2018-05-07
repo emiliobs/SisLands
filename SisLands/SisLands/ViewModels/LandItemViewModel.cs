@@ -27,9 +27,10 @@ namespace SisLands.ViewModels
         {
             //con la palabra reservada this traigo todos los datos que viene con la seleccion del mismo.
             MainVIewModel.GetInstance().Land = new LandViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new LandTabbedPAge());
-            //Application.Current.MainPage = new NavigationPage(new LandTabbedPAge());
-            
+            await App.Navigator.PushAsync(new LandTabbedPAge());
+            //await Application.Current.MainPage.Navigation.PushAsync(new LandTabbedPAge());
+          
+
         } 
         #endregion
     }
