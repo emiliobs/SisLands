@@ -129,8 +129,14 @@
   <data name="Error" xml:space="preserve">
     <value>Erro</value>
   </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Sair</value>
+  </data>
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Meu perfil</value>
   </data>
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Coloque sua senha.</value>
@@ -143,5 +149,8 @@
   </data>
   <data name="SomethingWasWrong" xml:space="preserve">
     <value>Algo estava errado, por favor tente novamente.</value>
+  </data>
+  <data name="Statistic" xml:space="preserve">
+    <value>Estatística</value>
   </data>
 </root>

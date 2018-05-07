@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using FFImageLoading.Forms.Args;
 using SisLands.Interfaces;
 using SisLands.Resources;
 using Xamarin.Forms;
@@ -69,5 +70,22 @@ namespace SisLands.Helpers
             get => Resource.Menu;
 
         }
+
+        public static string MyProfile
+        {
+            get => Resource.MyProfile;
+
+        }
+
+        public static string LogOut
+        {
+            get => Resource.LogOut;
+        }
+
+        public static String Statistic
+        {
+            get => Resource.Statistic;
+        }
+       
     }
 }

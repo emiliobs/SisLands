@@ -8,11 +8,32 @@
              Title="{i18n:Translate Menu}"
              BackgroundColor="Navy">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Menú......."
-                   TextColor="White"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="5,20,5,5">
+            <Image Source="ic_earth" WidthRequest="100"></Image>
+                <ListView ItemsSource="{Binding Menus}" HasUnevenRows="True" BackgroundColor="Navy" SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                       </Grid.ColumnDefinitions> 
+                                    <Image
+                                        Source="{Binding Icon}"
+                                        WidthRequest="50"
+                                        HeightRequest="50">
+                                    </Image>              
+                                    <Label Grid.Column="1"
+                                           VerticalOptions="Center"
+                                           TextColor="White"
+                                           Text="{Binding Title}">
+                                    </Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -97,11 +97,29 @@ namespace SisLands.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log Out.
+        /// </summary>
+        public static string LogOut {
+            get {
+                return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menu.
         /// </summary>
         public static string Menu {
             get {
                 return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Profile.
+        /// </summary>
+        public static string MyProfile {
+            get {
+                return ResourceManager.GetString("MyProfile", resourceCulture);
             }
         }
         
@@ -138,6 +156,15 @@ namespace SisLands.Resources {
         public static string SomethingWasWrong {
             get {
                 return ResourceManager.GetString("SomethingWasWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistic.
+        /// </summary>
+        public static string Statistic {
+            get {
+                return ResourceManager.GetString("Statistic", resourceCulture);
             }
         }
     }
